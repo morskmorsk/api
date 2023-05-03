@@ -9,7 +9,7 @@ from .forms import CustomUserCreationForm, CustomAuthenticationForm
 class RegisterView(CreateView):
     form_class = CustomUserCreationForm
     template_name = 'accounts/register.html'
-    success_url = reverse_lazy('home')  # Change 'home' to the name of your desired redirect URL
+    success_url = reverse_lazy('login')  # Change 'home' to the name of your desired redirect URL
 
     def form_valid(self, form):
         response = super().form_valid(form)
@@ -20,4 +20,4 @@ class RegisterView(CreateView):
 class UserLoginView(LoginView):
     form_class = CustomAuthenticationForm
     template_name = 'accounts/login.html'
-    success_url = reverse_lazy('home')  # Change 'home' to the name of your desired redirect URL
+    success_url = reverse_lazy('/api')  # Change 'home' to the name of your desired redirect URL
